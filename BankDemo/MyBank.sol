@@ -1,4 +1,4 @@
-pragma solidity ^0.5.1;
+pragma solidity >=0.4.7 <0.7.0;
 
 interface GeneralInfo {
     //abstract method
@@ -12,6 +12,7 @@ contract Bank is GeneralInfo{
     
     address private owner; // owner of this contract
     
+    //modifier means that constrains
     modifier ownerFunction {
         require(owner == msg.sender);
         _;
@@ -49,4 +50,18 @@ contract Bank is GeneralInfo{
 }
 
 contract MyBank is Bank(2){
+}
+
+contract testThrows {
+    function testAssert() public {
+        assert(false);
+    }
+    
+    function testRequire() public{
+        require(false);
+    }
+    
+    function testRevert() public {
+        revert();
+    }
 }

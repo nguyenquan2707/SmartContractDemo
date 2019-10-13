@@ -10,15 +10,24 @@ interface GeneralInfo {
 contract Bank is GeneralInfo{
     uint256 private amount; // i don't want outsite the world accessing this property
     
+    address private owner; // owner of this contract
+    
+    modifier ownerFunction {
+        require(owner == msg.sender);
+        _;
+    }
+    
     constructor(uint256 _amount) public {
         amount = _amount;
+        owner = msg.sender;
     }
      
     function deposit(uint256 _amount) public {
         amount += _amount;
     }
     
-    function withraw(uint256 _amount) public {
+    function withraw(uint256 _amount) public ownerFunction { // it mean that only who person deploy this contract
+    // can deposit money
         require(_amount <= amount);
         
         amount -= _amount;

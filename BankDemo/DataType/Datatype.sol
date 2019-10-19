@@ -27,10 +27,27 @@ contract  DataType {
     }
     
     //enum
-    enum myEnum {
-        ONE, TWO, THREE
+    enum State {Waiting, Active, Destroy}
+    
+    State public state;
+    
+    constructor() public {
+        state = State.Waiting;
+    }
+    function active() public {
+        state = State.Active;
     }
     
-    myEnum m = myEnum.TWO;
+    function destroy() public {
+        state = State.Destroy;
+    }
+    
+    function isActive() public view returns(bool) {
+        return state == State.Active;
+    }
+    
+    function isDestroy() public view returns(bool) {
+        return state == State.Destroy;
+    }
     
 }

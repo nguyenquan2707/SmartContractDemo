@@ -11,6 +11,13 @@ contract Bank is GeneralInfo{
     uint256 private amount; // i don't want outsite the world accessing this property
     
     address private owner; // owner of this contract
+
+    uint openingTime = 1571575599;
+
+    modifier onlyOpeningTime {
+        require(block.timestamp > openingTime);
+        _;
+    }
     
     //modifier means that constrains
     modifier ownerFunction {
@@ -23,7 +30,7 @@ contract Bank is GeneralInfo{
         owner = msg.sender;
     }
      
-    function deposit(uint256 _amount) public {
+    function deposit(uint256 _amount) public  onlyOpeningTime {
         amount += _amount;
     }
     

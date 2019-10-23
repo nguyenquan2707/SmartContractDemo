@@ -1,8 +1,17 @@
 pragma solidity ^0.5.11;
 
+contract ERC20Token {
+    string public name;
+    mapping(address => uint256) balances;
+    
+    function mint() public {
+        balances[msg.sender] ++;
+    }
+}
+
+
 contract MyTokens{
     
-    //
     mapping(address => uint256) public balances;
     address payable wallet;
     
@@ -16,7 +25,8 @@ contract MyTokens{
     }
     
     function buyTokens() public payable{ // this function will accept eth with payable keyword
-        balances[msg.sender] +=1; // this address will add 1 tokens
+     // how to call other contract in
+     // need address of other contract when it was deployed, then we can call mint() function
         wallet.transfer(msg.value);
         emit logBuyTokens(msg.sender, 1);
     }

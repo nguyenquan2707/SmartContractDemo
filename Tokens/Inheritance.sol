@@ -15,9 +15,17 @@ contract ERC20Token {
 
 contract MyTokens is ERC20Token{
     string public symbol;
+    address[] owners;
+    uint256 countOwner;
     //the way we call parent constructor, that easy
     constructor (string memory _name, string memory _symbol) ERC20Token(_name) public {
         symbol = _symbol;
+    }
+    
+    function mint() public {
+        super.mint();
+        countOwner +=1;
+        owners.push(msg.sender);
     }
     
 }

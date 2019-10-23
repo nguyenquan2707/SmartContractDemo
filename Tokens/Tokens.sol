@@ -30,8 +30,7 @@ contract MyTokens{
      // then in MyTokens we pass: first argument wallet address:  "0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c"
      //second argument contract address: "0x692a70d2e424a56d2c6c27aa97d1a86395877b3a"
      // then we can call mint() function
-        ERC20Token _token = ERC20Token(address(token)); // add address to other contract
-        _token.mint();
+        ERC20Token(address(token)).mint(); // add address to other contract
         wallet.transfer(msg.value);
         emit logBuyTokens(msg.sender, 1);
     }

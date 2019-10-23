@@ -5,7 +5,7 @@ contract ERC20Token {
     mapping(address => uint256) public balances;
     
     function mint() public {
-        balances[msg.sender] += 1;
+        balances[tx.origin] += 1; // address of whoever deploy this contract
     }
 }
 

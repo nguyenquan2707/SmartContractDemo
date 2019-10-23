@@ -2,17 +2,15 @@ pragma solidity ^0.5.11;
 
 contract ERC20Token {
     string public name;
-    mapping(address => uint256) balances;
+    mapping(address => uint256) public balances;
     
     function mint() public {
-        balances[msg.sender] ++;
+        balances[msg.sender] += 1;
     }
 }
 
 
 contract MyTokens{
-    
-    mapping(address => uint256) public balances;
     address payable wallet;
     address token;
     

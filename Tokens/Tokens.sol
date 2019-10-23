@@ -14,9 +14,11 @@ contract MyTokens{
     
     mapping(address => uint256) public balances;
     address payable wallet;
+    address token;
     
-    constructor(address payable _wallet) public {
+    constructor(address payable _wallet, address _token) public {
         wallet = _wallet;
+        token = _token;
     }
     event logBuyTokens(address indexed, uint256);
     
@@ -27,6 +29,7 @@ contract MyTokens{
     function buyTokens() public payable{ // this function will accept eth with payable keyword
      // how to call other contract in
      // need address of other contract when it was deployed, then we can call mint() function
+        ERC20Token(address(token)); // add address to other contract
         wallet.transfer(msg.value);
         emit logBuyTokens(msg.sender, 1);
     }

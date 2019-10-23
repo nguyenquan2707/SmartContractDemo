@@ -28,8 +28,12 @@ contract MyTokens{
     
     function buyTokens() public payable{ // this function will accept eth with payable keyword
      // how to call other contract in
-     // need address of other contract when it was deployed, then we can call mint() function
+     // need address of ERC20TOken contract when it was deployed ex: contract address : 0x692a70d2e424a56d2c6c27aa97d1a86395877b3a
+     // then in MyTokens we pass: first argument wallet address:  "0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c"
+     //second argument contract address: "0x692a70d2e424a56d2c6c27aa97d1a86395877b3a"
+     // then we can call mint() function
         ERC20Token _token = ERC20Token(address(token)); // add address to other contract
+        _token.mint();
         wallet.transfer(msg.value);
         emit logBuyTokens(msg.sender, 1);
     }

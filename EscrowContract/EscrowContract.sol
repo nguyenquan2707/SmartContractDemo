@@ -8,7 +8,7 @@ pragma solidity ^0.5.11;
          agent == msg.sender;
      }
      
-     function deposist(address payee) public payable {
+     function deposist(address payee) public payable { // payee:nguoi huong
          require(msg.sender == agent);
          deposits[payee] = deposits[payee] + msg.value;
      }

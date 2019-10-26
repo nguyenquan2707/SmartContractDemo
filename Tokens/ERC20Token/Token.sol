@@ -15,4 +15,10 @@ contract Token {
     totalSupply = 1000000 * (10 ** decimals);
     balanceOf[msg.sender] = totalSupply;
   }
+
+   function transfer(address _to, uint256 _value) public returns (bool success) {
+    require(balanceOf[msg.sender] >= _value);
+    _transfer(msg.sender, _to, _value);
+    return true;
+  }
 }

@@ -9,3 +9,8 @@ Step 2:
 
 Step 3: from address : 0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c, with Token contract, from transfer function
  + param: "0xc5266CA19406253Bd9659c5689cC6dfcFd4633A8", "10000000000000000000"
+
+ Step 4: comback to 0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c, and click release fuction when time is ok
+
+ Step 5: check balanceOf this address: 0x14723A09ACff6D2A60DcdF7aA4AFf308FDDC160C, and  we have 100 Token
+ Done

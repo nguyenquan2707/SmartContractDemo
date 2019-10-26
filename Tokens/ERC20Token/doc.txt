@@ -1,0 +1,11 @@
+Step 1: 
+ + from address: 0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c, deploy Token contract
+ + then we have contract address: 0x038F160aD632409BFB18582241d9Fd88C1A072Ba
+
+Step 2: 
+ + deploy TokenTimeLock with address : 0x14723A09ACff6D2A60DcdF7aA4AFf308FDDC160C
+ + para: "0x038F160aD632409BFB18582241d9Fd88C1A072Ba",  "0x14723A09ACff6D2A60DcdF7aA4AFf308FDDC160C", "1572074794"
+ + we have address: 0xc5266CA19406253Bd9659c5689cC6dfcFd4633A8
+
+Step 3: from address : 0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c, with Token contract, from transfer function
+ + param: "0xc5266CA19406253Bd9659c5689cC6dfcFd4633A8", "10000000000000000000"

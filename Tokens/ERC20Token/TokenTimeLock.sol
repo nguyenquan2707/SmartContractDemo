@@ -14,6 +14,9 @@ contract TokenTimeLock {
      }
      
      function release() public {
-         
+         require(block.timestamp > releaseTime);
+         uint256 amount = token.balanceOf(address(this));//this refer to TokenTimeLock contract, 
+         require(amount > 0);
+         token.transfer(beneficiary, amount);
      }
 }

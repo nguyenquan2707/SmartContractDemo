@@ -1,0 +1,2 @@
+# SmartContractDemo
+some basic contract

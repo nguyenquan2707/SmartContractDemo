@@ -16,6 +16,6 @@ contract TimeLock {
     
     function release() public {
         require(releaseTime > block.timestamp);
-        
+        address(beneficiary).transfer(address(this).balance);// transfer to beneficiary by balance of this smart contract
     }
 }

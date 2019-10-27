@@ -6,7 +6,7 @@ contract TimeLock {
     //how much?
     // when
     
-    address payable beneficiary;
+    address  payable public beneficiary;
     uint256 releaseTime;
     constructor(address payable _beneficiary, uint256 _releaseTime) public {
         require(_releaseTime > block.timestamp);
@@ -15,7 +15,7 @@ contract TimeLock {
     }
     
     function release() public {
-        require(releaseTime > block.timestamp);
+        require(block.timestamp > releaseTime);
         address(beneficiary).transfer(address(this).balance);// transfer to beneficiary by balance of this smart contract
     }
 }

@@ -6,10 +6,16 @@ contract TimeLock {
     //how much?
     // when
     
-    address beneficiary;
+    address payable beneficiary;
     uint256 releaseTime;
-    constructor(address _beneficiary, uint256 _releaseTime) public {
+    constructor(address payable _beneficiary, uint256 _releaseTime) public {
+        require(_releaseTime > block.timestamp);
         beneficiary = _beneficiary;
         releaseTime = _releaseTime;
+    }
+    
+    function release() public {
+        require(releaseTime > block.timestamp);
+        
     }
 }
